@@ -5,7 +5,7 @@ import { ImageBackground, Image, Pressable } from 'react-native'
 const MealTile = (meal) => {
 return (
   <View style={styles.mealTile}>
-    <Pressable>
+    <Pressable andriod_ripple={{color: 'lightgray'}}>
       <View>
         <Image style={styles.image} source={{ uri: meal.imageUrl }} />
         <Text style={styles.title}>{meal.title}</Text>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 5,
         elevation: 3,
-        backgroundColor: 'orange',
+        backgroundColor: 'rgba(255, 98, 0, 0.5)',
     },
     bgImage: {
         width: '100%',

@@ -2,9 +2,15 @@ import { StyleSheet, Text, View, FlatList } from 'react-native'
 import React from 'react'
 import { MEALS } from '../data/dummy-data'
 import MealTile from '../components/MealTile'
-const MealsOverviewScreen = ( {route} ) => {
+const MealsOverviewScreen = ( {route, navigation} ) => {
     const catId = route.params.categoryId;
     const title = route.params.title;
+    navigation.setOptions({
+              title: title,
+              headerStyle: { backgroundColor: "lightgray" },
+              headerTintColor: "black",
+              contentStyle: { backgroundColor: "lightgray" },
+            });
     const displayedMeals = MEALS.filter(meal => meal.categoryIds.indexOf(catId) >= 0);
     const renderMealItem = (itemData) => {
         return (
