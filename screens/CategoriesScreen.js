@@ -11,7 +11,7 @@ const CategoriesScreen = ({ navigation }) => {
             title: itemData.item.title,
           });
         };
-    return        <CategoryGridTile onPress={pressHandler} title={itemData.item.title} color={itemData.item.color}/>
+    return <CategoryGridTile onPress={pressHandler} title={itemData.item.title} color={itemData.item.color}/>
     }
   return (
     <SafeAreaView>

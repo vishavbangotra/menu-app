@@ -1,16 +1,19 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { ImageBackground } from 'react-native'
+import { ImageBackground, Image, Pressable } from 'react-native'
 
 const MealTile = (meal) => {
 return (
   <View style={styles.mealTile}>
-    <ImageBackground source={{ uri: meal.imageUrl }} style={styles.bgImage}>
-      <Text style={styles.title}>{meal.title}</Text>
-      <Text>{meal.duration}</Text>
-      <Text>{meal.complexity}</Text>
-      <Text>{meal.affordability}</Text>
-    </ImageBackground>
+    <Pressable>
+      <View>
+        <Image style={styles.image} source={{ uri: meal.imageUrl }} />
+        <Text style={styles.title}>{meal.title}</Text>
+        <Text>{meal.duration}</Text>
+        <Text>{meal.complexity.toUpperCase()}</Text>
+        <Text>{meal.affordability}</Text>
+      </View>
+    </Pressable>
   </View>
 );
 }
@@ -23,11 +26,11 @@ const styles = StyleSheet.create({
         margin: 10,
         borderRadius: 10,
         shadowColor: 'black',
-        shadowOpacity: 0.26,
+        shadowOpacity: 1,
         shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 10,
+        shadowRadius: 5,
         elevation: 3,
-        overflow: 'hidden',
+        backgroundColor: 'orange',
     },
     bgImage: {
         width: '100%',
@@ -35,13 +38,22 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    image:{
+        width: '100%',
+        height: '200',
+    },
     title: {
         fontSize: 18,
         fontWeight: 'bold',
         marginBottom: 5,
         color: 'white',
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: 'rgb(131, 0, 0)',
         paddingHorizontal: 12,
         paddingVertical: 5,
     },
+    text: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+    }
 })
