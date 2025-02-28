@@ -5,16 +5,11 @@ import MealTile from '../components/MealTile'
 const MealsOverviewScreen = ( {route, navigation} ) => {
     const catId = route.params.categoryId;
     const title = route.params.title;
-    navigation.setOptions({
-              title: title,
-              headerStyle: { backgroundColor: "lightgray" },
-              headerTintColor: "black",
-              contentStyle: { backgroundColor: "lightgray" },
-            });
     const displayedMeals = MEALS.filter(meal => meal.categoryIds.indexOf(catId) >= 0);
     const renderMealItem = (itemData) => {
         return (
           <MealTile
+            id={itemData.item.id}
             title={itemData.item.title}
             duration={itemData.item.duration}
             complexity={itemData.item.complexity}
@@ -32,4 +27,4 @@ const MealsOverviewScreen = ( {route, navigation} ) => {
 
 export default MealsOverviewScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({}) 
